@@ -27,5 +27,8 @@ public class Compte {
 		this.solde = solde;
 	}
 	
+	public String toString() {
+		return this.numero + " " + this.solde;
+	}
 	
 }
