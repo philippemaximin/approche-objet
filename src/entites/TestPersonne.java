@@ -21,8 +21,20 @@ public class TestPersonne {
 		b.adresse.ville = "Lyon";
 		
 
-		Personne c = new Personne("Petit", "Cedric", new AdressePostale(1, "Rue des Lilas", "St Etienne", 42000));
+		Personne c = new Personne("petit", "Cedric", new AdressePostale(1, "Rue des Lilas", "St Etienne", 42000));
+		System.out.println(c.getNomPrenom());
 		
+		c.setNewNom("grand");
+		System.out.println(c.getNomPrenom());
+		
+		c.setNewPrenom("Spirou");
+		System.out.println(c.getNomPrenom());
+		
+		c.setNewAdress(65,  "Rue de Miramas", "Montpellier", 34000);
+		
+		System.out.println(c.getNom());
+		System.out.println(c.getPrenom());
+		System.out.println(c.getAdresse());
 	}
 
 }
