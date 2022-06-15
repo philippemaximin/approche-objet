@@ -1,13 +1,14 @@
 package fr.diginamic.essais;
 
 import fr.diginamic.entites.Cercle;
+import fr.diginamic.utils.CercleFactory;
 
 public class TestCercle {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Cercle cercle1 = new Cercle(10.0);
-		Cercle cercle2 = new Cercle(18.0);
+		Cercle cercle1 = CercleFactory.newCercle(10);
+		Cercle cercle2 = CercleFactory.newCercle(18);
 		
 		System.out.println(cercle1.perimetreCercle());
 		System.out.println(cercle1.surfaceCercle());
