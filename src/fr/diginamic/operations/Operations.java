@@ -1,7 +1,5 @@
 package fr.diginamic.operations;
 
-import fr.diginamic.entites.Cercle;
-
 public class Operations {
 	
 	 public static double operationMathematiques( double a, double b, char operateur ) {
