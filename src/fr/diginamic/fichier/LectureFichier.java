@@ -5,6 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class LectureFichier {
 		
 		//Exercice LireFichierAvecInstanciation
 		ArrayList<Ville> tabVille = new ArrayList<Ville>();
-		boolean premiereLigneLu = false;
+		boolean premiereLigne = false;
 	
 		if ( Files.isReadable(pathFile) ) {
 			List<String> lines= Files.readAllLines(pathFile, StandardCharsets.UTF_8);
@@ -48,14 +49,39 @@ public class LectureFichier {
 					9 - Population totale;
 				*/
 				
-				if (premiereLigneLu) {
+				if (premiereLigne) {
 					tabVille.add( new Ville(tokens[6], tokens[2], tokens[1], Integer.valueOf(tokens[9].replaceAll(" ", ""))) );
 				}
 				
-				premiereLigneLu = true;
+				premiereLigne = true;
 			}
 		}
 		
+		
+		//Exercice GenererFichier
+		premiereLigne = false;
+		String s;
+		
+		for (Ville tab : tabVille) {
+			if (tab.getPopulationTotale() > 25_000) {
+		
+				s = tab.getNom() + "; " + tab.getPopulationTotale() + "; \n";
+				
+				if (!premiereLigne) {
+					Files.write(
+	                    Paths.get("./GenererFichier.csv"),
+	                    s.getBytes(StandardCharsets.UTF_8));
+					
+					premiereLigne = true;
+				}
+				else {
+					Files.write(
+	                    Paths.get("./GenererFichier.csv"),
+	                    s.getBytes(StandardCharsets.UTF_8),
+	                    StandardOpenOption.APPEND);
+				}
+			}
+		}
 		
 	}
 
