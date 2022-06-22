@@ -34,8 +34,7 @@ public class ComptagePaysParContinent {
 		HashMap<String, Integer> cpt = new HashMap<>();
 		
 		for (Pays country : pays) {
-			System.out.println(country.getContinent());
-			
+
 			if ( cpt.containsKey(country.getContinent()) ) {
 				cpt.put(country.getContinent(), cpt.get(country.getContinent()) + 1);
 			}
