@@ -1,5 +1,7 @@
 package fr.diginamic.listes;
 
+import java.util.Objects;
+
 public class Ville {
 	private String nom;
 	private int nbHabitant;
@@ -25,5 +27,19 @@ public class Ville {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		
+		if ( !(obj instanceof Ville) ) {
+			return false;
+		}
+			
+		Ville other = (Ville) obj;
+		return nbHabitant == other.nbHabitant && Objects.equals(nom, other.nom);
+	}
+	
+	
 	
 }
