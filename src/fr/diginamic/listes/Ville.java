@@ -2,14 +2,24 @@ package fr.diginamic.listes;
 
 import java.util.Objects;
 
+import fr.diginamic.testenumeration.Continent;
+
 public class Ville {
 	private String nom;
 	private int nbHabitant;
+	private Continent continent;
 	
 	public Ville(String nom, int nbHabitant) {
 		super();
 		this.nom = nom;
 		this.nbHabitant = nbHabitant;
+	}
+	
+	public Ville(String nom, int nbHabitant, Continent continent) {
+		super();
+		this.nom = nom;
+		this.nbHabitant = nbHabitant;
+		this.continent = continent;
 	}
 
 	public String getNom() {
@@ -21,7 +31,7 @@ public class Ville {
 	}
 	
 	public String toString() {
-		return getNom();
+		return getNom() + " continent : " + this.continent.getLibelle();
 	}
 
 	public void setNom(String nom) {
